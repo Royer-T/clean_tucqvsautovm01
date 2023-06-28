@@ -37,9 +37,6 @@ def main() -> None:
     Main function that performs cleanup operations for different folders using
     the Clean class and delete_clean function.
     """
-    logintimes = Clean(constants.LOGINTIMES)
-    delete_clean(logintimes)
-
     connect = Clean(constants.CONNECT)
     delete_clean(connect)
 
@@ -51,6 +48,9 @@ def main() -> None:
 
     htcmobileapp = Clean(constants.HTCMOBILEAPP)
     delete_clean(htcmobileapp)
+
+    logintimes = Clean(constants.LOGINTIMES)
+    delete_clean(logintimes)
 
 
 if __name__ == '__main__':
