@@ -72,7 +72,13 @@ class Clean:
         for dirpath, dirnames, filenames in os.walk(folder_path, topdown=False):
             for filename in filenames:
                 file_path = os.path.join(dirpath, filename)
-                os.remove(file_path)
+                try:
+                    os.remove(file_path)
+                except OSError as e:
+                    logger.warning(f'Error deleting file {file_path}: {e}')
             for dirname in dirnames:
                 dir_path = os.path.join(dirpath, dirname)
-                os.rmdir(dir_path)
+                try:
+                    os.rmdir(dir_path)
+                except OSError as e:
+                    logger.warning(f'Error deleting directory {dir_path}: {e}')
